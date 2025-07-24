@@ -1,0 +1,212 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    @apply bg-gray-50 dark:bg-gray-900 transition-colors duration-200;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    @apply bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200;
+  }
+
+  /* Force header to respect dark mode */
+  .dark header {
+    @apply bg-gray-800 border-gray-700 !important;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 h-10 py-2 px-4;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 h-10 py-2 px-4;
+  }
+  
+  .btn-outline {
+    @apply btn border border-gray-300 bg-white hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 h-10 py-2 px-4;
+  }
+  
+  .btn-sm {
+    @apply h-8 px-3 text-xs;
+  }
+  
+  .btn-lg {
+    @apply h-12 px-8;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400;
+  }
+  
+  .input-field {
+    @apply input;
+  }
+  
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700;
+  }
+  
+  .card-header {
+    @apply p-6 pb-4;
+  }
+  
+  .card-content {
+    @apply p-6 pt-0;
+  }
+  
+  .glass {
+    @apply bg-white bg-opacity-80 backdrop-blur-sm border border-white border-opacity-20 dark:bg-gray-800 dark:bg-opacity-80 dark:border-gray-700 dark:border-opacity-20;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .expense-gradient {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  }
+  
+  .income-gradient {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #6b7280;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  .text-responsive {
+    @apply text-sm;
+  }
+  
+  .card {
+    @apply mx-2;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-full-width {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Additional dark mode support */
+.dark {
+  color-scheme: dark;
+}
+
+/* Ensure all backgrounds are properly dark */
+.dark body,
+.dark #root,
+.dark .main-content {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Fix any remaining light backgrounds */
+.dark .bg-white {
+  @apply bg-gray-800;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-900;
+}
+
+.dark .bg-gray-100 {
+  @apply bg-gray-800;
+}
+
+/* Ensure text is visible in dark mode */
+.dark .text-gray-900 {
+  @apply text-gray-100;
+}
+
+.dark .text-gray-800 {
+  @apply text-gray-200;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+/* Modal and overlay fixes */
+.dark .bg-black {
+  @apply bg-gray-900;
+}
+
+.dark .bg-opacity-50 {
+  @apply bg-opacity-80;
+}
