@@ -198,7 +198,7 @@ A comprehensive, professional full-stack expense tracking application built with
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/expense-tracker.git
+git clone https://github.com/sharondelya/expense-tracker.git
 cd expense-tracker
 ```
 
